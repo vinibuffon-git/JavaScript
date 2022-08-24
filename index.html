@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScirpt</title>
+    <link rel="icon" tipe="image/x-icon" href="Imagens/JSIcon.webp">
+</head>
+
+<body style="background-color: aquamarine;">
+    <div style="display: flex;">
+        <div style="text-align: center; margin: 0 auto;">
+            <h3> • Trabalhando com JavaScript </h3>
+            <div style="display: flex;">
+                <div>
+                    <h4 style="text-align: center;"> Mini Calculadora </h4>
+
+                    <input id="txtNumero1" type="number" style="width: 208px;" value="">
+
+                    <input id='txtNumero2' type="number" style="width: 208px;" value="">
+
+                    <hr noshade size="2" width=" 435px">
+
+                    <input type="button" onclick="somar()" value="Somar">
+                    <input type="button" onclick="subtrair()" value="Subtrair">
+                    <input type="button" onclick="multiplica()" value="Multiplica">
+                    <input type="button" onclick="dividir()" value="Dividir">
+
+                    <input id="txtResult" style="background-color: white;" type="number" value="">
+                </div>
+            </div>
+            <br>
+            <br>
+            <hr noshade size="5" width=" 435px" align="left">
+            <div style="display: flex;">
+                <div style="width: 437px;">
+                    <h4 style="text-align: center;"> Gerador de Tabuada </h4>
+                    <input  id="txtVezes" type="number" min="1" value="" placeholder="Número de vezes">
+                    <input id="txtTabuada" type="number" min="1" value="" placeholder="Número multiplicado">
+                    <br>
+                    <br>
+                    <input type="button" onclick="tabuada()" value="Calcular a Tabuada">
+                    <br>
+                    <span id="lblTabuada"> Tabuada: </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+
+        var valorNumero1 = document.getElementById('txtNumero1');
+        var valorNumero2 = document.getElementById('txtNumero2');
+        var numTabuada = document.getElementById('txtTabuada');
+        var numVezes = document.getElementById('txtVezes');
+
+        function somar() {
+            var soma = parseInt(valorNumero1.value) + parseInt(valorNumero2.value);
+            document.getElementById('txtResult').value = soma;
+        }
+
+        function subtrair() {
+            var subtrai = parseInt(valorNumero1.value) - parseInt(valorNumero2.value);
+            document.getElementById('txtResult').value = subtrai;
+        }
+
+        function multiplica() {
+            var multiplica = parseInt(valorNumero1.value) * parseInt(valorNumero2.value);
+            document.getElementById('txtResult').value = multiplica;
+        }
+
+        function dividir() {
+            var dividir = parseInt(valorNumero1.value) / parseInt(valorNumero2.value);
+            document.getElementById('txtResult').value = dividir;
+        }
+
+        function tabuada() {
+            if (!isNaN(parseInt(numTabuada.value))) {
+                var resTabuada = '';
+                for (var i = 1; i <= parseInt(numVezes.value); i++) {
+                    resTabuada += '<b>' + i + ' x ' + parseInt(numTabuada.value) + ' = ' + (i * parseInt(numTabuada.value)) + '<br>' + '<b>';
+
+                }
+                document.getElementById('lblTabuada').innerHTML = resTabuada;
+            } else {
+                alert('Informe um número válido');
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
